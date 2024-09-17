@@ -1,0 +1,65 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="form-box">
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <span class="title">Register</span>
+      <div class="form-container">
+        <div class="form-group">
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="Name"
+            id="name"
+          />
+          <div class="text-danger" *ngIf="registerForm.controls['name'].touched">
+            <span *ngIf="registerForm.controls['name'].errors?.['required']">This field is required</span>
+            <span *ngIf="registerForm.controls['name'].errors?.['minlength']">Minimum 4 characters required</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Email"
+            id="email"
+          />
+          <div class="text-danger" *ngIf="registerForm.controls['email'].touched">
+            <span *ngIf="registerForm.controls['email'].errors?.['required']">This field is required</span>
+            <span *ngIf="registerForm.controls['email'].errors?.['email']">Please enter a valid email</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="username"
+            placeholder="Username"
+            id="username"
+          />
+          <div class="text-danger" *ngIf="registerForm.controls['username'].touched">
+            <span *ngIf="registerForm.controls['username'].errors?.['required']">This field is required</span>
+            <span *ngIf="registerForm.controls['username'].errors?.['minlength']">Minimum 4 characters required</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Password"
+            id="password"
+          />
+          <div class="text-danger" *ngIf="registerForm.controls['password'].touched">
+            <span *ngIf="registerForm.controls['password'].errors?.['required']">This field is required</span>
+            <span *ngIf="registerForm.controls['password'].errors?.['minlength']">Minimum 6 characters required</span>
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+    <div class="form-section">
+      <p>Have an account? <a routerLink="/auth/login">Login</a></p>
+    </div>
+  </div>
+</div>

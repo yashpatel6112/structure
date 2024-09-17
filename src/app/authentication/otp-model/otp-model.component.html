@@ -1,0 +1,84 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <form class="otp-Form" [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+    <span class="mainHeading">Enter OTP</span>
+    <p class="otpSubheading">
+      We have sent a verification code to your registered email
+    </p>
+    <div class="inputContainer">
+      <input
+        #input1
+        required
+        maxlength="1"
+        formControlName="otpInput1"
+        type="text"
+        class="otpInput"
+        id="otpInput1"
+        (input)="onInput($event, input1, input2)"
+        (keydown.backspace)="onBackspace($event, input1, null)"
+      />
+      <input
+        #input2
+        required
+        maxlength="1"
+        type="text"
+        formControlName="otpInput2"
+        class="otpInput"
+        id="otpInput2"
+        (input)="onInput($event, input2, input3)"
+        (keydown.backspace)="onBackspace($event, input2, input1)"
+      />
+      <input
+        #input3
+        required
+        formControlName="otpInput3"
+        maxlength="1"
+        type="text"
+        class="otpInput"
+        id="otpInput3"
+        (input)="onInput($event, input3, input4)"
+        (keydown.backspace)="onBackspace($event, input3, input2)"
+      />
+      <input
+        #input4
+        required
+        maxlength="1"
+        type="text"
+        formControlName="otpInput4"
+        class="otpInput"
+        id="otpInput4"
+        (input)="onInput($event, input4, input5)"
+        (keydown.backspace)="onBackspace($event, input4, input3)"
+      />
+      <input
+        #input5
+        required
+        maxlength="1"
+        type="text"
+        formControlName="otpInput5"
+        class="otpInput"
+        id="otpInput5"
+        (input)="onInput($event, input5, input6)"
+        (keydown.backspace)="onBackspace($event, input5, input4)"
+      />
+      <input
+        #input6
+        required
+        maxlength="1"
+        type="text"
+        formControlName="otpInput6"
+        class="otpInput"
+        id="otpInput6"
+        (keydown.backspace)="onBackspace($event, input6, input5)"
+      />
+    </div>
+    <button class="verifyButton" type="submit">Verify</button>
+    <button class="exitBtn" routerLink="/auth/login" (click)="resetForm()">
+      ×
+    </button>
+    <p class="resendNote">
+      Didn't receive the code? <button class="resendBtn">Resend Code</button>
+    </p>
+  </form>
+</div>
+
+

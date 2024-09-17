@@ -1,0 +1,26 @@
+<nav class="navbar bg-body-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Angular 18</a>
+
+    <ul class="navbar-nav me-auto d-flex flex-row g-1" *ngIf="isLoggedIn">
+      <li class="nav-item mx-3" *ngIf="isAdmin">
+        <a class="nav-link" routerLink="/user">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/books">Books</a>
+      </li>
+    </ul>
+
+    <form class="d-flex" role="search">
+      <button *ngIf="!isLoggedIn" class="btn btn-outline-success mx-lg-1" type="button" routerLink="/auth/login">
+        Login
+      </button>
+      <button *ngIf="!isLoggedIn" class="btn btn-outline-success" type="button" routerLink="/auth/register">
+        Register
+      </button>
+      <button *ngIf="isLoggedIn" class="btn btn-outline-danger" type="button" (click)="onLogout()">
+        Logout
+      </button>
+    </form>
+  </div>
+</nav>

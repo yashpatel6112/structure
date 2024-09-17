@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="form-box">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <span class="title">Login</span>
+      <div class="form-container">
+        <input
+          type="text"
+          class="input"
+          formControlName="emailOrUsername"
+          placeholder="Email or Username"
+        />
+        <input
+          type="password"
+          class="input"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <div class="form-section">
+      <p>Don't have an account? <a routerLink="/auth/register">Signup</a></p>
+    </div>
+  </div>
+</div>
